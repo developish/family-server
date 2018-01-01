@@ -16,7 +16,10 @@ def members():
 
     cur.execute("SELECT id, name FROM members")
     for record in cur:
-        members.append(record[1])
+        members.append({
+            "id" : record[0],
+            "name" : record[1]
+        })
 
     return jsonify(members)
 
